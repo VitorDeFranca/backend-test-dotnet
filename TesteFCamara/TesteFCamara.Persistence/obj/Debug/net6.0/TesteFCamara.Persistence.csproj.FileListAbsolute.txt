@@ -1,0 +1,6 @@
+C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Persistence\obj\Debug\net6.0\TesteFCamara.Persistence.csproj.AssemblyReference.cache
+C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Persistence\obj\Debug\net6.0\TesteFCamara.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Persistence\obj\Debug\net6.0\TesteFCamara.Persistence.AssemblyInfoInputs.cache
+C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Persistence\obj\Debug\net6.0\TesteFCamara.Persistence.AssemblyInfo.cs
+C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Persistence\obj\Debug\net6.0\TesteFCamara.Persistence.csproj.CoreCompileInputs.cache
+C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Persistence\obj\Debug\net6.0\TesteFCamara.Persistence.sourcelink.json

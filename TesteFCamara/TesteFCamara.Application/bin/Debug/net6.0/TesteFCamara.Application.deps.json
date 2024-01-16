@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TesteFCamara.Application/1.0.0": {
+        "dependencies": {
+          "TesteFCamara.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TesteFCamara.Application.dll": {}
+        }
+      },
+      "TesteFCamara.Domain/1.0.0": {
+        "runtime": {
+          "TesteFCamara.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TesteFCamara.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TesteFCamara.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

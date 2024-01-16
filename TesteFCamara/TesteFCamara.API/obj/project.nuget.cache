@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "AbWlFE6cmrivVB6qJXo2Hw85BmLKufiZQcrzPbEjc5bnZ3md2dWhSR9E/6jfCWizc1h2G9urI0zQcnOaXt2X2g==",
+  "success": true,
+  "projectFilePath": "C:\\Vitor\\Projetos\\backend-test-dotnet\\TesteFCamara\\TesteFCamara.API\\TesteFCamara.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vitor.franca\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\vitor.franca\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\vitor.franca\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\vitor.franca\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\vitor.franca\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\vitor.franca\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
