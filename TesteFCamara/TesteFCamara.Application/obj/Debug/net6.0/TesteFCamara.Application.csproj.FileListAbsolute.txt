@@ -14,3 +14,5 @@ C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Application\obj\
 C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Application\obj\Debug\net6.0\refint\TesteFCamara.Application.dll
 C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Application\obj\Debug\net6.0\TesteFCamara.Application.pdb
 C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Application\obj\Debug\net6.0\ref\TesteFCamara.Application.dll
+C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Application\bin\Debug\net6.0\TesteFCamara.Application.runtimeconfig.json
+C:\Vitor\Projetos\backend-test-dotnet\TesteFCamara\TesteFCamara.Application\obj\Debug\net6.0\TesteFCamara.Application.genruntimeconfig.cache
