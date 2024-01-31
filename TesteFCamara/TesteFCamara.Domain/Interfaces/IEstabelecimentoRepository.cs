@@ -10,7 +10,7 @@ namespace TesteFCamara.Domain.Interfaces
 {
     public interface IEstabelecimentoRepository : IBaseRepository<Estabelecimento>
     {
-        Task<List<Estabelecimento>> GetAllEstabelecimentosAsync(bool includeVeiculos = false);
-        Task<Estabelecimento> GetEstabelecimentoByIdAsync(int id, bool includeVeiculos = false);
+        Task<List<Estabelecimento>> GetAllEstabelecimentosAsync(bool includeVeiculos);
+        Task<Estabelecimento> GetEstabelecimentoByIdAsync(int id, bool includeVeiculos);
     }
 }

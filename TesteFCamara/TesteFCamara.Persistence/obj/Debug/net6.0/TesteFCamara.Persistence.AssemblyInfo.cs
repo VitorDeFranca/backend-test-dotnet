@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TesteFCamara.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31c842a879b0907dcd5cf0013ef4aece2be2ff5c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52314ce11a9284fdb2b3e7f4338a83bcc5a8da40")]
 [assembly: System.Reflection.AssemblyProductAttribute("TesteFCamara.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TesteFCamara.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

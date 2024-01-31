@@ -20,4 +20,8 @@
     <ProjectReference Include="..\TesteFCamara.Application\TesteFCamara.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Maps\" />
+  </ItemGroup>
+
 </Project>

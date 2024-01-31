@@ -15,7 +15,7 @@ namespace TesteFCamara.Domain.Entities
         public string Cor { get; set; }
         public string Placa { get; set; }
         public string Tipo { get; set; }
-        public Estabelecimento Estabelecimento { get; set; }
+        public Estabelecimento? Estabelecimento { get; set; }
         public int EstabelecimentoId { get; set; }
 
         public Veiculo()
@@ -36,5 +36,7 @@ namespace TesteFCamara.Domain.Entities
 
         public Veiculo(string marca, string modelo, string cor, string placa, string tipo, int estabelecimentoId)
             : this(default, marca, modelo, cor, placa, tipo, estabelecimentoId) { }
+
+
     }
 }

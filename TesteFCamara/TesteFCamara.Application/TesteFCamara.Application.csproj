@@ -17,4 +17,8 @@
     <ProjectReference Include="..\TesteFCamara.Domain\TesteFCamara.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\Responses\" />
+  </ItemGroup>
+
 </Project>

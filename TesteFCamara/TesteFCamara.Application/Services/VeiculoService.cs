@@ -65,28 +65,33 @@ namespace TesteFCamara.Application.Services
         {
             try
             {
-                Estabelecimento estabelecimento = await _estabelecimentoRepository.GetEstabelecimentoByIdAsync(estabelecimentoId);
+                Estabelecimento estabelecimento = await _estabelecimentoRepository.GetEstabelecimentoByIdAsync(estabelecimentoId, false);
                 if (estabelecimento == null) throw new Exception("Estabelecimento não encontrado para adição de veículo");
 
                 string tipoVeiculo = model.Tipo.ToLower();
                 
-                if (tipoVeiculo == "moto" && estabelecimento.QtdVagasMoto > 0 ||
-                    tipoVeiculo == "carro" && estabelecimento.QtdVagasCarro > 0)
+                if (tipoVeiculo == "moto" && estabelecimento.QtdVagasDispMoto > 0 ||
+                    tipoVeiculo == "carro" && estabelecimento.QtdVagasDispCarro > 0)
                 {
                     //Veiculo veiculo = VeiculoDTO.ConverterParaEntidade(model);
                     model.EstabelecimentoId = estabelecimento.Id;
 
                     _veiculoRepository.Create(model);
 
-                    if (tipoVeiculo == "moto") estabelecimento.QtdVagasMoto--;
-                    if (tipoVeiculo == "carro") estabelecimento.QtdVagasCarro--;
-
                     if (await _veiculoRepository.SaveChangesAsync())
                     {
-                        Veiculo veiculoRetorno = await _veiculoRepository.GetVeiculoByIdAsync(model.EstabelecimentoId, model.Id);
+                        if (tipoVeiculo == "moto") estabelecimento.QtdVagasDispMoto--;
+                        if (tipoVeiculo == "carro") estabelecimento.QtdVagasDispCarro--;
 
-                        return veiculoRetorno;
+                        _estabelecimentoRepository.Update(estabelecimento);
+                        await _estabelecimentoRepository.SaveChangesAsync();
+
                     }
+
+                    Veiculo veiculoRetorno = await _veiculoRepository.GetVeiculoByIdAsync(model.EstabelecimentoId, model.Id);
+
+                    return veiculoRetorno;
+
                 }
                 return null;
 
@@ -102,7 +107,7 @@ namespace TesteFCamara.Application.Services
         {
             try
             {
-                Estabelecimento estabelecimento = await _estabelecimentoRepository.GetEstabelecimentoByIdAsync(estabelecimentoId);
+                Estabelecimento estabelecimento = await _estabelecimentoRepository.GetEstabelecimentoByIdAsync(estabelecimentoId, false);
                 if (estabelecimento == null) throw new Exception("Estabelecimento não encontrado para edição de veículo");
 
                 Veiculo veiculo = await _veiculoRepository.GetVeiculoByIdAsync(model.EstabelecimentoId, model.Id);
@@ -111,11 +116,13 @@ namespace TesteFCamara.Application.Services
                 //var modelEntidade = VeiculoDTO.ConverterParaEntidade(model);
 
                 _veiculoRepository.Update(model);
-                _veiculoRepository.SaveChangesAsync();
 
-                var veiculoRetorno = await _veiculoRepository.GetVeiculoByIdAsync(estabelecimentoId, model.Id);
-                return veiculoRetorno;
-
+                if (await _veiculoRepository.SaveChangesAsync())
+                {
+                    var veiculoRetorno = await _veiculoRepository.GetVeiculoByIdAsync(estabelecimentoId, model.Id);
+                    return veiculoRetorno;
+                }
+                return null;
 
             }
             catch (Exception)
@@ -128,7 +135,7 @@ namespace TesteFCamara.Application.Services
         {
             try
             {
-                Estabelecimento estabelecimento = await _estabelecimentoRepository.GetEstabelecimentoByIdAsync(estabelecimentoId);
+                Estabelecimento estabelecimento = await _estabelecimentoRepository.GetEstabelecimentoByIdAsync(estabelecimentoId, false);
                 if (estabelecimento == null) throw new Exception("Estabelecimento não encontrado para deleção de veículo");
 
                 Veiculo veiculo = await _veiculoRepository.GetVeiculoByIdAsync(estabelecimentoId, veiculoId);

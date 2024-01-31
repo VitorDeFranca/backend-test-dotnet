@@ -36,7 +36,7 @@ namespace TesteFCamara.Application.Services
             }
         }
 
-        public async Task<Estabelecimento> GetEstabelecimentoByIdAsync(int estabelecimentoId, bool includeVeiculos = false)
+        public async Task<Estabelecimento> GetEstabelecimentoByIdAsync(int estabelecimentoId, bool includeVeiculos = true)
         {
             try
             {

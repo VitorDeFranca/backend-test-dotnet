@@ -56,8 +56,8 @@ namespace TesteFCamara.Application.Dtos
                 estabelecimento.CNPJ,
                 estabelecimento.Endereco,
                 estabelecimento.Telefone,
-                estabelecimento.QtdVagasMoto,
-                estabelecimento.QtdVagasCarro,
+                estabelecimento.QtdVagasDispMoto,
+                estabelecimento.QtdVagasDispCarro,
                 listaVeiculos
                 );
 
@@ -69,8 +69,8 @@ namespace TesteFCamara.Application.Dtos
                 estabelecimento.CNPJ,
                 estabelecimento.Endereco,
                 estabelecimento.Telefone,
-                estabelecimento.QtdVagasMoto,
-                estabelecimento.QtdVagasCarro
+                estabelecimento.QtdVagasDispMoto,
+                estabelecimento.QtdVagasDispCarro
                 );
         }
 

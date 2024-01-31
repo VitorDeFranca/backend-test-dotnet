@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TesteFCamara.Application.Dtos;
+using TesteFCamara.Application.Dtos.Requests;
 using TesteFCamara.Application.Interfaces;
 using TesteFCamara.Application.Services;
 using TesteFCamara.Domain.Entities;
@@ -10,11 +11,14 @@ namespace TesteFCamara.API.Controllers
     [Route("api/[controller]")]
     public class EstabelecimentosController : ControllerBase
     {
+        private readonly IVeiculoService _veiculoService;
+
         private readonly IEstabelecimentoService _estabelecimentoService;
 
-        public EstabelecimentosController(IEstabelecimentoService estabelecimentoService)
+        public EstabelecimentosController(IEstabelecimentoService estabelecimentoService, IVeiculoService veiculoService)
         {
             _estabelecimentoService = estabelecimentoService;
+            _veiculoService = veiculoService;
         }
 
         [HttpGet]
@@ -52,12 +56,14 @@ namespace TesteFCamara.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Estabelecimento model)
+        public async Task<IActionResult> Post(InsercaoEdicaoEstabelecimentoRequest model)
         {
             try
             {
-                var estabelecimento = await _estabelecimentoService.AddEstabelecimento(model);
+                var estabelecimento = InsercaoEdicaoEstabelecimentoRequest.ConverterParaEntidade(model);
                 if (estabelecimento == null) return BadRequest();
+
+                var estabelecimentoRetorno = await _estabelecimentoService.AddEstabelecimento(estabelecimento);
 
                 return CreatedAtAction(nameof(GetById), new { id = estabelecimento.Id}, estabelecimento);
             }
@@ -69,14 +75,16 @@ namespace TesteFCamara.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Estabelecimento model)
+        public async Task<IActionResult> Put(int id, InsercaoEdicaoEstabelecimentoRequest model)
         {
             try
             {
-                var estabelecimento = await _estabelecimentoService.UpdateEstabelecimento(model.Id, model);
-                if (estabelecimento == null) return NotFound();
+                var estabelecimento = InsercaoEdicaoEstabelecimentoRequest.ConverterParaEntidade(model);
 
-                return Ok(estabelecimento);
+                var estabelecimentoRetorno = await _estabelecimentoService.UpdateEstabelecimento(id, estabelecimento);
+                if (estabelecimentoRetorno == null) return NotFound();
+
+                return Ok(estabelecimentoRetorno);
             }
             catch (Exception)
             {
@@ -104,6 +112,96 @@ namespace TesteFCamara.API.Controllers
             }
         }
 
+        [HttpGet("{id}/Veiculos")]
+        public async Task<IActionResult> Get(int id)
+        {
+            try
+            {
+                var veiculos = await _veiculoService.GetVeiculosByEstabelecimentoIdAsync(id);
+                if (veiculos == null) return NoContent();
+
+                return Ok(veiculos);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("{id}/Veiculos/{veiculoId}")]
+        public async Task<IActionResult> GetById(int id, int veiculoId)
+        {
+            try
+            {
+                var veiculo = await _veiculoService.GetVeiculoByIdAsync(id, veiculoId);
+                if (veiculo == null) return NotFound();
+
+                return Ok(veiculo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpPost("{id}/Veiculos")]
+        public async Task<IActionResult> Post(int id, InsercaoVeiculoRequest model)
+        {
+            try
+            {
+                var veiculo = InsercaoVeiculoRequest.ConverterParaEntidade(id, model);
+                if (veiculo == null) return BadRequest();
+
+                var veiculoRetorno = await _veiculoService.AddVeiculo(id, veiculo);
+
+                return CreatedAtAction(nameof(GetById), new { id = veiculoRetorno.Id }, veiculoRetorno);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpPut("{id}/Veiculos/{veiculoId}")]
+        public async Task<IActionResult> Put(int id, int veiculoId, EdicaoVeiculoRequest model)
+        {
+            try
+            {
+                var veiculo = EdicaoVeiculoRequest.ConverterParaEntidade(id, model);
+                if (veiculo == null) return NotFound();
+                veiculo.Id = veiculoId;
+
+                var veiculoRetorno = await _veiculoService.UpdateVeiculo(id, veiculo);
+
+                return Ok(veiculo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpDelete("{id}/Veiculos/{veiculoId}")]
+        public async Task<IActionResult> Delete(int id, int veiculoId)
+        {
+            try
+            {
+                var veiculo = await _veiculoService.GetVeiculoByIdAsync(id, veiculoId);
+                if (veiculo == null) return NotFound();
+
+                return await _veiculoService.DeleteVeiculo(id, veiculoId)
+                    ? Ok(new { message = "Deletado com sucesso" })
+                    : throw new Exception("Ocorreu um erro não específico ao tentar deletar o estabelecimento");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
     }
 }
