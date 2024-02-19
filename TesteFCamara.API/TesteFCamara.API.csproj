@@ -19,4 +19,8 @@
     <ProjectReference Include="..\TesteFCamara.Persistence\TesteFCamara.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+
 </Project>
