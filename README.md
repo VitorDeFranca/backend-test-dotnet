@@ -25,7 +25,7 @@
 git clone https://github.com/VitorDeFranca/backend-test-dotnet.git
 ```
 
-  <li> Dentro da criada, execute os comandos a seguir e aguarde a build.</li>
+  <li> Dentro da pasta criada, execute os comandos a seguir e aguarde a build.</li>
   
   ```bash
   cd .\TesteFCamara.API\
