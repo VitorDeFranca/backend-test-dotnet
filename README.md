@@ -79,6 +79,6 @@ git clone https://github.com/VitorDeFranca/backend-test-dotnet.git
 <hr>
 
 <div>
-  <h3 id="author">Autor :busts_in_silhouette:</h3>
+  <h3 id="author">Autor :globe_with_meridians:</h3>
   <li><a href="www.linkedin.com/in/vitor-monteiro-de-franca">Vitor França</a></li>
 </div>
